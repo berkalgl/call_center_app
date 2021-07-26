@@ -1,0 +1,48 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">Register</h1>
+    <div class="buttons">
+        <button class="button button-icon ion-close-round" ng-click="closeRegister()">
+        </button>
+      </div>
+  </ion-header-bar>
+  <ion-content>
+  <form ng-submit="doRegister()">
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label">Email</span>
+          <input type="text" ng-model="RegisterData.Email">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Username</span>
+          <input type="text" ng-model="RegisterData.username">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Password</span>
+          <input type="password" ng-model="RegisterData.password">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Confirm Password</span>
+          <input type="password" ng-model="RegisterData.password2">
+        </label>
+        <label class="item">
+        </label>
+      </div>
+    </form>
+    <li class="item item-toggle">
+     I accept the conditions
+     <label class="toggle toggle-positive">
+       <input type="checkbox">
+       <div class="track">
+         <div class="handle"></div>
+       </div>
+     </label>
+  </li>
+        <button class="button button-block button-positive" ng-disabled="RegisterData.password !== RegisterData.password2 || !RegisterData.Email || !RegisterData.username || !RegisterData.password " type="submit">Register</button>
+        <span style="text-align:center;">
+          {{RegisterData.password == RegisterData.password2 ? '':'Passwords are not matched'}}
+        </span>
+
+    
+  </ion-content>
+</ion-modal-view>

@@ -1,0 +1,50 @@
+<ion-view view-title="Banks ">
+  <ion-content>
+
+  <ion-refresher
+    pulling-text="Pull to refresh..."
+    pulling-icon="ion-arrow-down-c"
+    spinner="ios-small"
+    on-refresh="doRefresh()">
+  </ion-refresher>
+
+<div class="list list-inset">
+  <label class="item item-input">
+    <i class="icon ion-search placeholder-icon"></i>
+    <input type="text" placeholder="Search" ng-model="tosearch">
+  </label>
+</div>
+
+<div class="card" ng-if="tosearch.length<=3 && tosearch">
+  <div class="item item-text-wrap">
+    At least write a word included 3 letter
+  </div>
+</div>
+
+<div class="card" ng-if="tosearch.length>3">
+  <div class="item item-text-wrap">
+    You are searching for <b> {{tosearch}} </b>
+  </div>
+</div>
+
+<button class="button button-block button-{{ButtonColour}}" ng-click="username ? Click() : login()">
+  Like {{ClicksOfLike}}
+  <i class="ion-ios-{{Like}}"></i>
+</button>
+
+<!-- {{tosearch ? '':''}} -->
+
+    <div class="list" ng-if="tosearch.length>=3 || !tosearch">
+      <a class="item item-thumbnail-left item-icon-right" ng-repeat="firma in firmalar | filter:tosearch" href="#/app/playlists/{{firm.id}}">
+      <img src="{{firm.img}}">
+      <h2>{{firma.ad}}</h2>
+      <div>
+      	 <p>{{firma.shortdetail}}</p>
+      </div>    
+     
+      <i class="icon ion-ios-telephone-outline"></i>
+    </a>
+
+    </div>
+  </ion-content>
+</ion-view>
